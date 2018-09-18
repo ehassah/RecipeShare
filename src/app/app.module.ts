@@ -11,7 +11,7 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { RecipeDescriptionComponent } from './recipe-description/recipe-description.component';
 
-const routes: Routes =[
+export const routes: Routes =[
   {path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   {path: 'contact', component: ContactComponent},
@@ -34,6 +34,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[RouterModule]
 })
 export class AppModule { }
