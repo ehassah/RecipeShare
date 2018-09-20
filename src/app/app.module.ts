@@ -14,8 +14,10 @@ import { RecipeDescriptionComponent } from './recipe-description/recipe-descript
 export const routes: Routes =[
   {path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  {path: 'contact', component: ContactComponent},
-  { path: 'home/add-recipe', component: AddRecipeComponent }
+  { path: 'contact', component: ContactComponent},
+  { path: 'home/add-recipe', component: AddRecipeComponent },
+  { path: 'home/recipe-description', component: RecipeDescriptionComponent },
+  { path: 'home/recipe-description/recipe-description', component: EditRecipeComponent }
 ]
 
 @NgModule({
