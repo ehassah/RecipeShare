@@ -1,4 +1,3 @@
-import { Recipe } from './../models/recipe.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,23 +6,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-description.component.css']
 })
 export class RecipeDescriptionComponent implements OnInit {
- recipe: Recipe[]=[
+  
+  public recipes = [
+    {
+      "id": 1,
+      "userID": 1,
+      "title": "my recipe title",
+      "description": "my description",
+      "ingredent": "my ingredents",
+      "direction": "what to follow",
+      "prepTime": "1:8",
+      "cookingTime": "1:8",
+      "readyTime": "1:8",
+      "noOfServing": 2,
+      "category": "Food",
+      "categoryOption": "",
+      "photo": "../src/assets/images/default.png"
+  },
   {
-     id: 1,
-     userID: 1,
-     title: "my recipe title",
-     description: "my description",
-     ingredent: "my ingredents",
-     direction: "what to follow",
-     prepTime: "1:8",
-     cookingTime: "1:8",
-     readyTime: "1:8",
-     noOfServing: 2,
-     category: "Food",
-     categoryOption: "",
-     photo:"../src/assets/images/default.png"
+      "id": 2,
+      "userID": 2,
+      "title": "my recipe title",
+      "description": "my description",
+      "ingredent": "my ingredents",
+      "direction": "what to follow",
+      "prepTime": "1:8",
+      "cookingTime": "1:8",
+      "readyTime": "1:8",
+      "noOfServing": 2,
+      "category": "Food",
+      "categoryOption": "",
+      "photo": "../src/assets/images/default.png"
   }
- ];
+  ];
   constructor() { }
 
   ngOnInit() {
