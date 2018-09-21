@@ -1,34 +1,32 @@
-  
-
-<div class="form-row"  *ngFor = "let recipe of recipes">
+<p>{{errorMsg}}</p>
+<div class="form-row" *ngFor="let recipe of recipes">
   <!--Section 1-->
   <div class="col-md-4">
     <div class="recipe-photo">
-      <img alt="recipe-photo" src="..\src\assets\images\default.png"
-        width="200" height="300">
+      <img alt="recipe-photo" src="..\src\assets\images\default.png" width="200" height="300">
     </div>
     <div class="form-row">
       <div class="form-group">
-        
+
         <div class="form-inline">
           <label for="prep-time">Preparation time</label>
-          <p>11</p>
+          <p>{{recipe.prepTime}}</p>
         </div>
-        
+
         <div class="form-inline">
           <label for="cook-time">Cooking time</label>
-          <p>cooking time</p>
+          <p>{{recipe.cookingTime}}</p>
         </div>
       </div>
       <div class="form-group">
         <div class="form-inline">
           <label for="ready-in">Ready in</label>
-          <p>Ready in</p>
+          <p>{{recipe.readyTime}}</p>
         </div>
-        
+
         <div class="form-inline">
           <label for="no-of-serving">Number of Serving</label>
-          <p>servings</p>
+          <p>{{recipe.noOfServing}}</p>
         </div>
       </div>
     </div>
@@ -37,21 +35,21 @@
   <!--Section 2-->
   <div class="col-md-8">
     <div class="form-group">
-      <p>My title</p>
+      <p>{{recipe.title}}</p>
     </div>
 
     <div class="form-group">
-      <p>My recipe description</p>
+      <p>{{recipe.description}}</p>
     </div>
 
     <div class="form-group">
       <label for="recipe-ingredents">Ingredents:</label>
-      <p>My recipe ingredients</p>
+      <p>{{recipe.ingredent}}</p>
     </div>
 
     <div class="form-group">
       <label for="recipe-direction">Direction:</label>
-      <p>Direction to follow</p>
+      <p>{{recipe.direction}}</p>
     </div>
 
     <div class="form-group">

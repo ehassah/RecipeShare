@@ -1,3 +1,4 @@
+import { RecipeService } from './../service/recipe.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,41 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeDescriptionComponent implements OnInit {
   
-  public recipes = [
-    {
-      "id": 1,
-      "userID": 1,
-      "title": "my recipe title",
-      "description": "my description",
-      "ingredent": "my ingredents",
-      "direction": "what to follow",
-      "prepTime": "1:8",
-      "cookingTime": "1:8",
-      "readyTime": "1:8",
-      "noOfServing": 2,
-      "category": "Food",
-      "categoryOption": "",
-      "photo": "../src/assets/images/default.png"
-  },
-  {
-      "id": 2,
-      "userID": 2,
-      "title": "my recipe title",
-      "description": "my description",
-      "ingredent": "my ingredents",
-      "direction": "what to follow",
-      "prepTime": "1:8",
-      "cookingTime": "1:8",
-      "readyTime": "1:8",
-      "noOfServing": 2,
-      "category": "Food",
-      "categoryOption": "",
-      "photo": "../src/assets/images/default.png"
-  }
-  ];
-  constructor() { }
+  public recipes = [];
+  public errorMsg;
+  constructor(private _recipeService : RecipeService) { }
 
   ngOnInit() {
+    this._recipeService.getRecipe()
+    .subscribe(data => this.recipes = data,
+              error => this.errorMsg = error);
   }
 
 }

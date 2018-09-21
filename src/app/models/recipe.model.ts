@@ -1,4 +1,4 @@
-export class Recipe {
+export interface IRecipe {
     id: number;
     userID:number;
     title: string;
