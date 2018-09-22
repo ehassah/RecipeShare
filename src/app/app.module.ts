@@ -13,14 +13,18 @@ import { FooterComponent } from './footer/footer.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { RecipeDescriptionComponent } from './recipe-description/recipe-description.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 export const routes: Routes =[
-  {path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent},
-  { path: 'home/add-recipe', component: AddRecipeComponent },
-  { path: 'home/recipe-description', component: RecipeDescriptionComponent },
-  { path: 'home/recipe-description/recipe-description', component: EditRecipeComponent }
+  { path: 'add-recipe', component: AddRecipeComponent },
+  { path: 'recipe-description', component: RecipeDescriptionComponent },
+  { path: 'recipe-description/:id', component: RecipeDetailComponent },
+  { path: 'recipe-detail', component: RecipeDetailComponent },
+  { path:'**', component:PageNotFoundComponent}
 ]
 
 @NgModule({
@@ -32,7 +36,9 @@ export const routes: Routes =[
     FooterComponent,
     AddRecipeComponent,
     EditRecipeComponent,
-    RecipeDescriptionComponent
+    RecipeDescriptionComponent,
+    PageNotFoundComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,

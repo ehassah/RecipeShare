@@ -28,5 +28,20 @@
         "category": "Food",
         "categoryOption": "",
         "photo": "../src/assets/images/default.png"
+    },
+    {
+        "id": 3,
+        "userID": 3,
+        "title": "my recipe title3",
+        "description": "my description3",
+        "ingredent": "my ingredents3",
+        "direction": "what to follow3",
+        "prepTime": "1:8",
+        "cookingTime": "1:8",
+        "readyTime": "1:8",
+        "noOfServing": 2,
+        "category": "Food",
+        "categoryOption": "",
+        "photo": "../src/assets/images/default.png"
     }
 ]
