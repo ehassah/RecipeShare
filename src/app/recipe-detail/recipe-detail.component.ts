@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -8,11 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 export class RecipeDetailComponent implements OnInit {
 
   public recipeId;
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit() {
-    let id=parseInt(this.route.snapshot.paramMap.get('id'));
-    this.recipeId = id;
+    this.route.paramMap.subscribe((params:ParamMap)=>{
+      let id =parseInt(params.get('id'));
+      this.recipeId=id;
+    });
   }
 
 }
