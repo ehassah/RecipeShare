@@ -21,4 +21,9 @@ export class RecipeDescriptionComponent implements OnInit {
   onSelect(recipe){
     this.router.navigate(['/recipe-description', recipe.id]);
   }
+
+  addPost(){
+    this._recipeService.postRecipe();
+    console.log("Posting")
+  }
 }

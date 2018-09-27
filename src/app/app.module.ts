@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AngularFireModule} from 'angularfire';
 
 import { RecipeService } from './service/recipe.service';
 
@@ -15,6 +16,18 @@ import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { RecipeDescriptionComponent } from './recipe-description/recipe-description.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
+export const firebaseConfig={
+  
+    apiKey: "AIzaSyDBhLKxp7eQT7kn1Py2yrDTRrJEvRzAaQU",
+    authDomain: "recipeshare-99cb6.firebaseapp.com",
+    databaseURL: "https://recipeshare-99cb6.firebaseio.com",
+    projectId: "recipeshare-99cb6",
+    storageBucket: "recipeshare-99cb6.appspot.com",
+    messagingSenderId: "826936242990"
+  };
 
 export const routes: Routes =[
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,12 +51,15 @@ export const routes: Routes =[
     EditRecipeComponent,
     RecipeDescriptionComponent,
     PageNotFoundComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.inializeApp(firebaseConfig)
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent],
