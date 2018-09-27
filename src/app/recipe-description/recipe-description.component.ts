@@ -13,9 +13,13 @@ export class RecipeDescriptionComponent implements OnInit {
   constructor(private _recipeService : RecipeService, private router :Router) { }
 
   ngOnInit() {
-    this._recipeService.getRecipe()
-    .subscribe(data => this.recipes = data,
-              error => this.errorMsg = error);
+    
+    /*this._recipeService.getRecipe()
+     .subscribe(data => this.recipes = data,
+              error => this.errorMsg = error);*/
+
+    this._recipeService.getFromFirebase().valueChanges()
+    .subscribe(data => this.recipes = data);
   }
 
   onSelect(recipe){
@@ -23,7 +27,6 @@ export class RecipeDescriptionComponent implements OnInit {
   }
 
   addPost(){
-    this._recipeService.postRecipe();
-    console.log("Posting")
+    
   }
 }

@@ -2,7 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AngularFireModule} from 'angularfire';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { RecipeService } from './service/recipe.service';
 
@@ -19,25 +20,26 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
-export const firebaseConfig={
-  
-    apiKey: "AIzaSyDBhLKxp7eQT7kn1Py2yrDTRrJEvRzAaQU",
-    authDomain: "recipeshare-99cb6.firebaseapp.com",
-    databaseURL: "https://recipeshare-99cb6.firebaseio.com",
-    projectId: "recipeshare-99cb6",
-    storageBucket: "recipeshare-99cb6.appspot.com",
-    messagingSenderId: "826936242990"
-  };
+export const firebaseConfig = {
 
-export const routes: Routes =[
+  apiKey: "AIzaSyDBhLKxp7eQT7kn1Py2yrDTRrJEvRzAaQU",
+  authDomain: "recipeshare-99cb6.firebaseapp.com",
+  databaseURL: "https://recipeshare-99cb6.firebaseio.com",
+  projectId: "recipeshare-99cb6",
+  storageBucket: "recipeshare-99cb6.appspot.com",
+  messagingSenderId: "826936242990"
+};
+
+export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'contact', component: ContactComponent},
+  { path: 'contact', component: ContactComponent },
   { path: 'add-recipe', component: AddRecipeComponent },
   { path: 'recipe-description', component: RecipeDescriptionComponent },
   { path: 'recipe-description/:id', component: RecipeDetailComponent },
   { path: 'recipe-detail', component: RecipeDetailComponent },
-  { path:'**', component:PageNotFoundComponent}
+  { path: 'edit-recipe', component: EditRecipeComponent },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
@@ -59,10 +61,11 @@ export const routes: Routes =[
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    AngularFireModule.inializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AppModule { }

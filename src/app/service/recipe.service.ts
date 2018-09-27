@@ -4,6 +4,7 @@ import { Injectable, Component } from '@angular/core';
 import { IRecipe } from '../models/recipe.model';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,10 @@ export class RecipeService {
   private _url: string = "/assets/recipe.json";
   private postData;
 
-  constructor(private http: HttpClient) { }
+  recipesFirebase: any[];
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
+  /*
   getRecipe(): Observable<IRecipe[]> {
     return this.http.get<IRecipe[]>(this._url)
       .pipe(catchError(this.errorHandler));
@@ -22,6 +25,10 @@ export class RecipeService {
 
   errorHandler(error: HttpErrorResponse) {
     return Observable.throw(error.message || "Server Error");
+  }
+  */
+  getFromFirebase() {
+    return this.db.list('/Recipes');
   }
 
   postRecipe() {
