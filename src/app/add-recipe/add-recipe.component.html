@@ -1,4 +1,4 @@
-<form>
+<form #addRecipeForm="ngForm" (ngSubmit)=addRecipe(addRecipeForm)>
   <div class="form-row">
     <!--Section 1-->
     <div class="col-md-4">
@@ -10,21 +10,21 @@
         <div class="form-group">
           <div class="form-inline">
             <label for="prep-time">Preparation time</label>
-            <input type="text" class="form-control">
+            <input type="text"  name="prepTime" [(ngModel)] ="prepTime" class="form-control">
           </div>
           <div class="form-inline">
             <label for="cook-time">Cooking time</label>
-            <input type="text" class="form-control">
+            <input type="text" name="cookTime" [(ngModel)] ="cookTime" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <div class="form-inline">
             <label for="ready-in">Ready in</label>
-            <input type="text" class="form-control">
+            <input type="text" name="readyIn" [(ngModel)] ="readyIn" class="form-control">
           </div>
           <div class="form-inline">
             <label for="no-of-serving">Number of Serving</label>
-            <input type="text" class="form-control">
+            <input type="text" name="NoOfServing" [(ngModel)] ="NoOfServing" class="form-control">
           </div>
         </div>
       </div>
@@ -34,24 +34,25 @@
     <div class="col-md-8">
       <div class="form-group">
         <label for="recipe-title">Recipe title</label>
-        <input type="text" class="form-control">
+        <input type="text" id="recipe-title" name="title" [(ngModel)] ="title" class="form-control">
       </div>
       <div class="form-group">
         <label for="recipe-description">Recipe description</label>
-        <textarea class="form-control"></textarea>
+        <textarea id="recipe-description" name="description" class="form-control" [(ngModel)]="description"></textarea>
       </div>
       <div class="form-group">
         <label for="recipe-ingredents">Ingredents</label>
-        <textarea class="form-control"></textarea>
+        <textarea name="ingredents" [(ngModel)] ="ingredents" class="form-control"></textarea>
       </div>
       <div class="form-group">
         <label for="recipe-direction">Direction</label>
-        <textarea class="form-control"></textarea>
+        <textarea name="direction" [(ngModel)] ="direction" class="form-control"></textarea>
       </div>
       <div class="form-group">
-        <input type="submit" value="Submit">
+        <input type="submit"  value="Submit">
         <input type="button" value="Cancel">
       </div>
     </div>
   </div>
 </form>
+{{addRecipeForm.value | json}}

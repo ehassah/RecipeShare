@@ -26,7 +26,4 @@ export class RecipeDescriptionComponent implements OnInit {
     this.router.navigate(['/recipe-description', recipe.id]);
   }
 
-  addPost(){
-    
-  }
 }

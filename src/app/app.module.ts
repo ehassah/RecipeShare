@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -21,7 +22,6 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 export const firebaseConfig = {
-
   apiKey: "AIzaSyDBhLKxp7eQT7kn1Py2yrDTRrJEvRzAaQU",
   authDomain: "recipeshare-99cb6.firebaseapp.com",
   databaseURL: "https://recipeshare-99cb6.firebaseio.com",
@@ -61,6 +61,7 @@ export const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
