@@ -1,21 +1,28 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { AngularFire, AuthProvider, AuthMethods } from 'angularfire';
-import { Router } from '@angular/router';
-// import { moveIn } from '../router.animations';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../service/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  // animations:[moveIn()],
-  host:{'[@moveIn]':''}
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  error:any;
-  constructor() { }
-
+  error:string;
+  constructor(public authService: AuthService) {
+    
+    }
+  
   ngOnInit() {
+  }
+
+  login(loginForm) {
+    this.authService.login(loginForm.value.email, loginForm.value.password);
+    loginForm.value.email = loginForm.value.password = '';    
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

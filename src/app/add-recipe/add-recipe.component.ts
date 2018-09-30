@@ -9,19 +9,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-recipe.component.css']
 })
 export class AddRecipeComponent implements OnInit {
-
-  recipes : IRecipe[];
+  
   recipe :IRecipe;
-
   constructor(private _recipeService : RecipeService ) { }
 
   ngOnInit() {
-
   }
   
   addRecipe(recipeData:NgForm):void{
     this.recipe=recipeData.value;
-    this._recipeService.postRecipe(this.recipe);
+    this._recipeService.postData(this.recipe);
   }
 
 }
